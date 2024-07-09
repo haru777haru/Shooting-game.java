@@ -6,4 +6,5 @@ public class DropEnemy extends Enemy{
 	public void move() {
 		super.move();
 		vy=vy+0.1;
+	}
 }

@@ -4,4 +4,9 @@ public class PlayerBullet extends Character{
         super(x, y, vx, vy);
         // TODO 自動生成されたコンストラクター・スタブ
     }
+    
+    public void draw(MyFrame f) {
+        f.setColor(0, 0, 0);
+        f.fillRect(x+10, y, 10, 30);
+    }
 }

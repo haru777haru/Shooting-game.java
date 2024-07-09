@@ -9,15 +9,21 @@ public class Player extends Character implements KeyListener{
         f.setColor(200, 200, 200);
         f.fillRect(x+10, y, 10, 30);
     }
+    
     public Player(double x, double y, double vx, double vy) {
         //Characterクラスのコンストラクタ呼び出し(8章)
         super(x, y, vx, vy);
     }
+    
     public void move() {
         super.move();
         if (x<0) x=0;
         if (x>370) x=370;
     }
+    
+    public void keyTyped(KeyEvent e) {
+    }
+    
     public void keyPressed(KeyEvent e) {
         //キーボードが押されたときの処理(9章)
         if (e.getKeyCode()==KeyEvent.VK_LEFT) {
@@ -26,8 +32,10 @@ public class Player extends Character implements KeyListener{
         if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
             vx=5;
         }
-        if (e.getKeyCode()==KeyEvent.VK_SPACE) {
-            GameWorld.playerBullets.add(new PlayerBullet(x,y,0,-10));
+        if (e.getKeyCode()==KeyEvent.VK_SPACE) {    
+            GameWorld.playerBullets.add(new PlayerBullet(x,y,0,-20));
+            GameWorld.playerBullets.add(new PlayerBullet(x,y,9,-20));
+            GameWorld.playerBullets.add(new PlayerBullet(x,y,-9,-20));
             System.out.println("弾の数="+GameWorld.playerBullets.size());
         }
     }
@@ -39,7 +47,5 @@ public class Player extends Character implements KeyListener{
         if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
             vx=0;
         }
-    }
-    public void keyTyped(KeyEvent e) {
     }
 }

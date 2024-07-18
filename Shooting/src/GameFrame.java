@@ -42,8 +42,7 @@ public class GameFrame extends MyFrame{
 public void checkPlayerAndEnemies() {
 	for(int i=0 ;i<GameWorld.enemies.size(); i++ ) {
 		Enemy e=GameWorld.enemies.get(i);
-		if(Math.abs(e.x-GameWorld.player.x)<=30  &&
-		Math.abs(e.y-GameWorld.player.y)<=30){
+		if(checkHit(GameWorld.player,e)) {
 			System.out.println("やられた！");
 			GameWorld.player.y=-1000;
 		
@@ -77,6 +76,14 @@ public void checkPlayerBulletsAndEnemies() {
 		i++;
 	}
 }
+}
+
+public boolean checkHit(Character a,Character b) {
+	if(Math.abs(a.x-b.x)<=30 && Math.abs(a.y-b.y)<=30) {
+		return true;
+	}else {
+		return false;
+	}
 }
 }
 

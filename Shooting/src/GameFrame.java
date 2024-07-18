@@ -81,12 +81,11 @@ public void checkPlayerBulletsAndEnemies() {
 }
 
 public boolean checkHit(Character a,Character b) {
-	if(Math.abs(a.x-b.x)<=30 && Math.abs(a.y-b.y)<=30) {
-		return true;
-	}else {
-		return false;
-	}
+	if(Math.abs(a.x-b.x)<=10 &&
+	              Math.abs(a.y-b.y)<=10){
+		  return true;
+	 }else {
+		  return false;
+	 }
 }
 }
-
-

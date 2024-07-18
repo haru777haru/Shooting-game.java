@@ -61,13 +61,15 @@ public void checkPlayerBulletsAndEnemies() {
 		int hits=0;
 		while (j<GameWorld.enemies.size()) {
 			Enemy e=GameWorld.enemies.get(j);
-			if(Math.abs(e.x-b.x)<=30 &&
-					Math.abs(e.y-b.y)<=30){
+			if(checkHit(e,b)) {
 				System.out.println("あたり");
 				hits++;
+				e.life--;
+			}
+			if(e.life<=0) {
 				GameWorld.enemies.remove(j);
-			}else{
-			j++;
+			}else {
+				j++;
 			}
 		}
 		if(hits>0) {
